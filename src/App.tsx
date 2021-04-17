@@ -7,7 +7,8 @@ const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const todoAddHandler = (text: string) => {
-    setTodos([
+    setTodos((prevTodos) => [
+      ...prevTodos,
       {
         id: Math.random().toString(),
         text,
