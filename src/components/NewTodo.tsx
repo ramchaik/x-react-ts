@@ -10,7 +10,13 @@ const NewTodo: React.FC<NewTodoProps> = (props) => {
     event.preventDefault();
 
     const enteredText = textInputRef.current!.value;
+    if (!enteredText) {
+      alert("Please add a todo!");
+      return;
+    }
+
     props.onAddTodo(enteredText);
+    textInputRef.current!.value = "";
   };
 
   return (
